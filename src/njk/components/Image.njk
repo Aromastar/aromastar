@@ -1,7 +1,5 @@
 {% macro image(src, alt) %}
-  <div class="image">
-    <picture>
-      <img class="image__src" src="{{ src }}" alt="{{ alt }}">
-    </picture>
-  </div>
+  <picture>
+    <img class="image" src="{{ src }}" alt="{{ alt }}">
+  </picture>
 {% endmacro %}
