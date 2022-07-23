@@ -1,6 +1,23 @@
+{% from './Image.njk' import image as image %}
+
 {% macro benefit(title, text) %}
   <div class="benefit">
     <h4 class="benefit__title">{{ title }}</h4>
     <p class="benefit__text">{{ text }}</p>
+  </div>
+{% endmacro %}
+
+
+{% macro event(title, text, label, href) %}
+  <div class="event">
+    <div class="event__thumb">
+      {{ image('../../images/placeholder.png', 'asd') }}
+    </div>
+
+    <div class="event__info">
+      <h4 class="event__title">{{ title }}</h4>
+      <p class="event__text">{{ text }}</p>
+      <a href="{{ href }}" class="event__link">{{ label }}</a>
+    </div>
   </div>
 {% endmacro %}

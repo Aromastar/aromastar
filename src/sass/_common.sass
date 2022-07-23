@@ -197,10 +197,10 @@ body
   position: absolute
   top: 0
   left: 0
-    width: 100%
-    height: 100%
-    object-fit: cover
-    object-position: center
+  width: 100%
+  height: 100%
+  object-fit: cover
+  object-position: center
 
 .about
   position: relative
@@ -286,3 +286,59 @@ body
     &::before
       opacity: 1
       transform: scale3d(1, 1, 1)
+
+.events
+  &__video
+    position: relative
+    margin-bottom: 80px
+    &::before
+      content: ''
+      display: block
+      padding-top: 50%
+
+  &__events
+    padding: 60px 0 100px
+
+  &__list
+    margin-bottom: 80px
+
+  &__item
+    & + &
+      margin-top: 40px
+
+.event
+  display: flex
+  align-items: center
+  border-top: 1px solid $grey-300
+  border-bottom: 1px solid $grey-300
+  font-size: 14px
+  @include max-width(750)
+    padding: 2em 0
+
+  &__thumb
+    position: relative
+    width: 200px
+    margin-right: 100px
+    flex-shrink: 0
+
+    @include max-width(750)
+      display: none
+
+    &::before
+      content: ''
+      display: block
+      padding-top: 75%
+
+  &__title
+    font-size: 1.4em
+
+  &__text
+    margin: 1em 0
+    color: $grey-500
+    @include max-width(750)
+      margin: 0.6em 0
+
+  &__link
+    color: $accent-color
+    font-family: $title-font-family
+    font-size: 1.2em
