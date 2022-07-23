@@ -9,8 +9,14 @@ h1, h2, h3, h4, h5
 
 h1
   @include fluid-font(46, 90, 500, 1520)
-
   @include min-width(1410)
+    .heading__top
+      margin-left: -120px
+
+h2
+  @include fluid-font(36, 52, 500, 1520)
+  margin-bottom: 1em
+  @include min-width(1100)
     .heading__top
       margin-left: -120px
 
@@ -18,6 +24,6 @@ h1
   display: flex
   flex-direction: column
 
-  // &__top
-  //   margin-left: -120px
-  // &__bottom
+.p
+  font-size: 1.8rem
+  color: $grey-500
