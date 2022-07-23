@@ -27,13 +27,13 @@ body
   background-color: $white
 
   &__container
-    min-height: 60px
+    min-height: 100px
     display: flex
     justify-content: space-between
     align-items: center
 
-    @include max-height($header-break-point)
-      min-height: 100px
+    @include max-width($header-break-point)
+      min-height: 60px
 
   &__nav
     display: flex
