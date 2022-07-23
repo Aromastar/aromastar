@@ -16,8 +16,11 @@ h1
 h2
   @include fluid-font(36, 52, 500, 1520)
   margin-bottom: 1em
-  @include min-width(1100)
-    .heading__top
+
+  .heading__top
+    &::first-letter
+      color: $accent-color
+    @include min-width(1100)
       margin-left: -120px
 
 .heading
@@ -27,3 +30,6 @@ h2
 .p
   font-size: 1.8rem
   color: $grey-500
+
+  & + &
+    margin-top: 1em
