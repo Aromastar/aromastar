@@ -2,3 +2,22 @@ $title-font-family: 'Alegreya', serif
 $text-font-family: 'Inter', sans-serif
 $text-main-size: 1.8rem
 $text-main-line-height: 1.6
+
+h1, h2, h3, h4, h5
+  font-family: $title-font-family
+  line-height: 1
+
+h1
+  @include fluid-font(46, 90, 500, 1520)
+
+  @include min-width(1410)
+    .heading__top
+      margin-left: -120px
+
+.heading
+  display: flex
+  flex-direction: column
+
+  // &__top
+  //   margin-left: -120px
+  // &__bottom

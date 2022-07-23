@@ -1,0 +1,32 @@
+{% set navLinks = [
+  { _id: 0, label: 'Главная', href: '#top' },
+  { _id: 1, label: 'Агенство', href: '#about'},
+  { _id: 2, label: 'Услуги', href: '#services' },
+  { _id: 3, label: 'Мероприятия', href: '#events' }
+] %}
+
+<header class="header">
+  <div class='container header__container'>
+    <div>
+      <a href="#top">{% include '../components/TextLogo.njk' %}</a>
+    </div>
+
+    <div class="header__nav">
+      <nav class="nav">
+        <ul class="nav__list">
+          {% for link in navLinks %}
+            <li class="nav__item">
+              <a href="{{ link.href }}">{{ link.label }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header__burger">
+      <button class="burger">
+        <span class="burger__bar"></span>
+      </button>
+    </div>
+  </div>
+</header>

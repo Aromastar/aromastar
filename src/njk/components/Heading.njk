@@ -1,0 +1,6 @@
+{% macro heading(level, top, bottom, className) %}
+  <h{{ level }} {% if className %} class="heading {{ className }}" {% else %} class="heading" {% endif %}>
+    <span class="heading__top">{{ top }}</span>
+    <span class="heading__bottom">{{ bottom }}</span>
+  </h{{ level }}>
+{% endmacro %}
