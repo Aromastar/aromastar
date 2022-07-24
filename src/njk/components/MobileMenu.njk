@@ -1,0 +1,22 @@
+{% set navLinks = [
+  { _id: 1, label: 'Агенство', href: '#about'},
+  { _id: 2, label: 'Услуги', href: '#services' },
+  { _id: 3, label: 'Мероприятия', href: '#events' },
+  { _id: 4, label: 'Контакты', href: '#contacts' }
+] %}
+
+<section class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu__inner">
+    <ul class="mobile-menu__list">
+      {% for link in navLinks %}
+        <li class="mobile-menu__link">
+          <a href="{{ link.href }}">{{ link.label }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <a href="#" class="mobile-menu__flag">
+      {{ flag('en') }}
+    </a>
+  </div>
+</section>
