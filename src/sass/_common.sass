@@ -370,6 +370,7 @@ body
     opacity: 0
     transform: translate3d(30px, 0, 0)
     transition: opacity 500ms, transform 500ms
+    pointer-events: none
 
     &.is-active
       opacity: 1
@@ -379,3 +380,54 @@ body
   .events-gallery__img
     opacity: 1
     transform: scale3d(1, 1, 1)
+
+.contacts
+  overflow: hidden
+  margin-top: 160px
+
+  &__container
+    position: relative
+    padding-bottom: 120px
+
+    &::before
+      content: ''
+      position: absolute
+      top: -100vh
+      right: -100vw
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-color: $grey-200
+      @include max-width(1520)
+        left: -100vw
+
+  &__list
+    display: flex
+    justify-content: space-between
+    border-top: 1px solid $grey-300
+    border-bottom: 1px solid $grey-300
+    padding: 60px 0
+    margin-top: 80px
+    font-size: 18px
+
+    @include max-width(750)
+      padding: 30px 0
+      flex-direction: column
+      margin-top: 30px
+
+  &__item
+    @include min-width(750)
+      max-width: 250px
+    @include max-width(750)
+      & + &
+        margin-top: 20px
+
+
+
+  &__title
+    margin: 0
+
+  &__link
+    color: $accent-color
+    font-family: $title-font-family
+    font-weight: bold

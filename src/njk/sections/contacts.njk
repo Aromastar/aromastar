@@ -1,0 +1,25 @@
+{% set contacts = [
+  { _id: 0, label: '+7 (999) 999-99-99', title: 'Телефон', href: 'tel:+79999999999' },
+  { _id: 1, label: 'example@gmail.com', title: 'Почта', href: 'mailto:example@gmail.com?subject=Aromastar%20events' },
+  { _id: 2, label: 'ул. Авиактонструкторов, 5/22, Санкт-Петербург, Россия', title: 'Адрес', href: 'https://www.google.com/maps/place/Prospekt+Aviakonstruktorov,+5,+Sankt-Peterburg,+197372/data=!4m2!3m1!1s0x4696343397b794c5:0x4c95a7d231a996f7?sa=X&ved=2ahUKEwjJyuuW8pD5AhUCiIsKHS8HAngQ8gF6BAgmEAE' }
+] %}
+
+<section class="section contacts" id="contacts">
+  {% include '../components/SectionLine.njk' %}
+  <div class="container contacts__container">
+    <div class="content">
+      <div class="content__inner">
+        {{ heading(2, 'Мы будем рады обсудить', 'важные для Вас события.') }}
+        <p class="p">Наше агентство превращает любые идеи в реальность, уделяя внимание каждой детали. Будем рады ответить на все интересующие вас вопросы!</p>
+      </div>
+        <ul class="contacts__list">
+          {% for contact in contacts %}
+            <li class="contacts__item">
+              <h5 class="contacts__title">{{ contact.title }}:</h5>
+              <a href="{{ contact.href }}" class="contacts__link" {% if contact._id === 2 %} target="_blank" {% endif %}>{{ contact.label | safe }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+  </div>
+</section>
