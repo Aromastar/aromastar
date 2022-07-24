@@ -1,1 +1,1 @@
-window.console.log('asd')
+import './events-slider'

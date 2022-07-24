@@ -1,0 +1,45 @@
+{% set events = [
+  { _id: 0, width: 400, src: '/images/placeholder.png', title: 'SEREBRO в Китае на шоу «Born to be U5»' },
+  { _id: 0, width: 200, src: '/images/placeholder.png', title: 'SEREBRO в Китае на шоу «Born to be U5»' },
+  { _id: 0, width: 300, src: '/images/placeholder.png', title: 'SEREBRO в Китае на шоу «Born to be U5»' },
+  { _id: 0, width: 260, src: '/images/placeholder.png', title: 'SEREBRO в Китае на шоу «Born to be U5»' },
+  { _id: 0, width: 300, src: '/images/placeholder.png', title: 'SEREBRO в Китае на шоу «Born to be U5»' }
+] %}
+
+<section class="section" id="events">
+  {% include '../components/SectionLine.njk' %}
+  <div class="container">
+    <div class="content">
+      <div class="content__inner">
+        {{ heading(2, 'Незабываемые впечатления', 'от нашего event агентства.') }}
+        <p class="p">Aromastar радует своих клиентов уже более пяти лет.
+          За это время наша компания реализовала большое количество event-проектов
+          различного масштаба и направления:</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="events-gallery">
+    <div class="swiper" id="swiper">
+      <div class="swiper-wrapper">
+        {% for event in events %}
+          <div class="swiper-slide events-gallery__slide" style="height: 400px; width: {{event.width}}px" data-slide-index="{{ loop.index - 1 }}">
+            <div class="events-gallery__img">
+              {{ image('/images/placeholder.png') }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="content__inner events-gallery__title">
+        {% for event in events %}
+          <h3 class="events-gallery__name">{{ event.title }}</h3>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

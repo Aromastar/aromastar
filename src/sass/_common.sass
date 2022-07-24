@@ -342,3 +342,37 @@ body
     color: $accent-color
     font-family: $title-font-family
     font-size: 1.2em
+
+.events-gallery
+  margin: 80px 0
+
+  &__slide
+    height: 400px
+
+  &__img
+    opacity: .3
+    transform: scale3d(0.92, 0.92, 0.92)
+    height: 100%
+    transition: opacity 300ms, transform 300ms
+
+  &__title
+    position: relative
+
+  &__name
+    position: absolute
+    left: 0
+    top: 0
+    color: $accent-color
+    font-size: 32px
+    opacity: 0
+    transform: translate3d(30px, 0, 0)
+    transition: opacity 500ms, transform 500ms
+
+    &.is-active
+      opacity: 1
+      transform: translate3d(0, 0, 0)
+
+.swiper-slide-active
+  .events-gallery__img
+    opacity: 1
+    transform: scale3d(1, 1, 1)
