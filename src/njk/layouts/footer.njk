@@ -1,0 +1,29 @@
+{% set navLinks = [
+  { _id: 1, label: 'Агенство', href: '#about'},
+  { _id: 2, label: 'Услуги', href: '#services' },
+  { _id: 3, label: 'Мероприятия', href: '#events' },
+  { _id: 4, label: 'Контакты', href: '#contacts' }
+] %}
+
+<footer class="footer">
+  <div class="container footer__container">
+    <div>
+      {% set logo = { uno: '#FFFFFF', dos: '#C3321D' } %}
+      <a href="#top">{% include '../components/TextLogo.njk' %}</a>
+    </div>
+
+    <div class="footer__nav">
+      <ul class="footer__list">
+        {% for link in navLinks %}
+          <li class="footer__link">
+            <a href="{{ link.href }}">{{ link.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <a class="footer__flag" href="#">
+        {{ flag('en') }}
+      </a>
+    </div>
+  </div>
+</footer>

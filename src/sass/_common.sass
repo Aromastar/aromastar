@@ -30,7 +30,7 @@ body
     background-color: $grey-200
 
 .header
-  $header-break-point: 600
+  $header-break-point: 720
 
   position: fixed
   top: 0
@@ -52,6 +52,12 @@ body
   &__nav
     display: flex
     align-items: center
+    @include max-width($header-break-point)
+      display: none
+
+  &__flag
+    display: flex
+    margin-left: 80px
     @include max-width($header-break-point)
       display: none
 
@@ -431,3 +437,43 @@ body
     color: $accent-color
     font-family: $title-font-family
     font-weight: bold
+
+
+.footer
+  $footer-break-point: 600
+
+  background-color: $black
+  color: $white
+
+  &__container
+    display: flex
+    justify-content: space-between
+    align-items: center
+    min-height: 100px
+    @include max-width($footer-break-point)
+      min-height: 75px
+
+  &__nav
+    display: flex
+    align-items: center
+
+  &__list
+    display: flex
+    @include max-width(730)
+      display: none
+
+  &__link
+    font-size: 1.4rem
+    letter-spacing: -4%
+    line-height: 1
+    transition: opacity 150ms
+
+    &:hover
+      opacity: .5
+
+    & + &
+      margin-left: 40px
+
+  &__flag
+    display: flex
+    margin-left: 80px

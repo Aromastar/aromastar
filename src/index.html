@@ -4,6 +4,7 @@
 {% from 'src/njk/components/Image.njk' import image as image %}
 {% import 'src/njk/components/ListItems.njk' as listItems %}
 {% import 'src/njk/components/Button.njk' as button %}
+{% from 'src/njk/components/Flags.njk' import flags as flag %}
 
 {% block main %}
   {% include 'src/njk/layouts/header.njk' %}
@@ -12,4 +13,5 @@
   {% include 'src/njk/sections/services.njk' %}
   {% include 'src/njk/sections/events.njk' %}
   {% include 'src/njk/sections/contacts.njk' %}
+  {% include 'src/njk/layouts/footer.njk' %}
 {% endblock %}
