@@ -19,7 +19,11 @@
 
       <div class="content services__events">
         <div class="services__video">
-          {{ image('/assets/placeholder.png', 'asd')}}
+          <video muted width="100%" height="100%" id="events-video">
+            <source src="/assets/video.mp4" type="video/mp4">
+          </video>
+
+          <button class="services__video-btn" id="events-video-btn"></button>
         </div>
 
         <ul class="services__list">
