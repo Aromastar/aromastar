@@ -1,5 +1,33 @@
 {% extends 'src/njk/layouts/page.layout.njk' %}
 
+{% set navLinks = [
+  { _id: 1, label: 'Агенство', href: '#about'},
+  { _id: 2, label: 'Услуги', href: '#services' },
+  { _id: 3, label: 'Мероприятия', href: '#events' },
+  { _id: 4, label: 'Контакты', href: '#contacts' }
+] %}
+
+{% set benefits = [
+  { _id: 0, title: 'Большой опыт', text: 'Агентство Aromastar радует своих клиентов уже более пяти лет.  За это время наша компания реализовала большое количество event-проектов различного масштаба и направления.' },
+  { _id: 1, title: 'Высокое качество услуг', text: 'В нашей команде работают профессиональные сценаристы, артисты, ведущие, аниматоры,  режиссеры-постановщики, фото- и видео операторы, которые нацелены на лучший результат!' },
+  { _id: 2, title: 'Оригинальность', text: 'Наше агентство к каждому заказу находит свой подход. Event-менеджеры выявят все Ваши предпочтения, сценаристы напишут индивидуальную программу. Ваше событие получится по-настоящему ярким и особенным!' },
+  { _id: 3, title: 'Реализация задач клиента', text: 'Специалисты нашего event-агентства определят, что Вам действительно нужно и, исходя из ваших пожеланий, интересов, предложат наиболее подходящий вариант мероприятия.' }
+] %}
+
+{% set contacts = [
+  { _id: 0, label: '+7 (911) 998-85-70', title: 'Телефон', href: 'tel:+79119988570' },
+  { _id: 1, label: 'aromastar.spb@mail.com', title: 'Почта', href: 'mailto:aromastar.spb@mail.com?subject=Aromastar%20events' },
+  { _id: 2, label: 'ул. Авиактонструкторов, 5/22, Санкт-Петербург, Россия', title: 'Адрес', href: 'https://www.google.com/maps/place/Prospekt+Aviakonstruktorov,+5,+Sankt-Peterburg,+197372/data=!4m2!3m1!1s0x4696343397b794c5:0x4c95a7d231a996f7?sa=X&ved=2ahUKEwjJyuuW8pD5AhUCiIsKHS8HAngQ8gF6BAgmEAE' }
+] %}
+
+{% set events = [
+  { _id: 0, width: 400, src: '/assets/baikal.jpg', title: 'Завораживающий Байкал' },
+  { _id: 0, width: 500, src: '/assets/serebro.jpg', title: 'Концерт группы SEREBRO в Китае' },
+  { _id: 0, width: 300, src: '/assets/moscow.jpg', title: 'Новогодняя ярмарка в Москве' },
+  { _id: 0, width: 260, src: '/assets/georgia.jpg', title: 'Экскурсионный туры в Грузию' },
+  { _id: 0, width: 400, src: '/assets/birthday.jpg', title: 'День рождение Алисы' }
+] %}
+
 {% from 'src/njk/components/Heading.njk' import heading as heading %}
 {% from 'src/njk/components/Image.njk' import image as image %}
 {% import 'src/njk/components/ListItems.njk' as listItems %}
@@ -8,12 +36,15 @@
 
 {% block main %}
   {% include 'src/njk/layouts/header.njk' %}
-  {% include 'src/njk/components/hero.njk' %}
-  {% include 'src/njk/sections/about.njk' %}
-  {% include 'src/njk/sections/services.njk' %}
-  {% include 'src/njk/sections/events.njk' %}
-  {% include 'src/njk/sections/contacts.njk' %}
-  {% include 'src/njk/layouts/footer.njk' %}
 
-  {% include 'src/njk/components/MobileMenu.njk' %}
+  <main>
+    {% include 'src/njk/sections/hero.njk' %}
+    {% include 'src/njk/sections/about.njk' %}
+    {% include 'src/njk/sections/services.njk' %}
+    {% include 'src/njk/sections/events.njk' %}
+    {% include 'src/njk/sections/contacts.njk' %}
+    {% include 'src/njk/components/MobileMenu.njk' %}
+  </main>
+
+  {% include 'src/njk/layouts/footer.njk' %}
 {% endblock %}
