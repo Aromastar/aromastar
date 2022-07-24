@@ -1,11 +1,11 @@
-{% set events = [
+{% set services = [
   { _id: 0, title: 'Корпоративные праздники', text: 'Проведение корпоративов – это одна из основных сфер деятельности компании Aromastar', link: { label: 'Узнать больше', href: '#contacts' } },
   { _id: 1, title: 'Организация концертов', text: 'Мировые звезды шоу-бизнеса. Яркие шоу и концерты на самых крупных площадках России', link: { label: 'Узнать больше', href: '#contacts' } },
   { _id: 2, title: 'Экскурсионные туры', text: 'Организовываем красочные и интересные экскурсионные туры по всей России и СНГ', link: { label: 'Узнать больше', href: '#contacts' } },
   { _id: 3, title: 'Организация и проведение конференций', text: 'Услуги по организации конференций, форумов и других деловых мероприятий', link: { label: 'Узнать больше', href: '#contacts' } }
 ] %}
 
-<section class="section section--grey" id="events">
+<section class="section section--grey" id="services">
   {% include '../components/SectionLine.njk' %}
 
   <div class="container">
@@ -17,15 +17,15 @@
         </div>
       </div>
 
-      <div class="content events__events">
-        <div class="events__video">
+      <div class="content services__events">
+        <div class="services__video">
           {{ image('/images/placeholder.png', 'asd')}}
         </div>
 
-        <ul class="events__list">
-          {% for event in events %}
-            <li class="events__item">
-              {{ listItems.event(event.title, event.text, event.link.label, event.link.href) }}
+        <ul class="services__list">
+          {% for service in services %}
+            <li class="services__item">
+              {{ listItems.event(service.title, service.text, service.link.label, service.link.href) }}
             </li>
           {% endfor %}
         </ul>
