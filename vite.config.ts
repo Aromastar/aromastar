@@ -1,5 +1,5 @@
-import nunjucks from 'vite-plugin-nunjucks'
 import { HmrContext, Plugin } from 'vite'
+import nunjucks from 'vite-plugin-nunjucks'
 
 /** Plugin to reload the page when changing files */
 const reloadOnChange = (ext: string): Plugin => {
@@ -12,6 +12,9 @@ const reloadOnChange = (ext: string): Plugin => {
 }
 
 export default {
+  build: {
+    outDir: '../dist'
+  },
   plugins: [
     reloadOnChange('njk'),
     nunjucks()
