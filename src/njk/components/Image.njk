@@ -1,5 +1,5 @@
-{% macro image(src, alt) %}
+{% macro image(img, alt) %}
   <picture>
-    <img class="image" src="{{ src }}" alt="{{ alt }}">
+    <img class="image image--blurred" src="/assets/{{ img }}-blurred.png" alt="Blurred placeholder">
   </picture>
 {% endmacro %}

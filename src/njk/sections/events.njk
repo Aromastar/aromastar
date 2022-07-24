@@ -17,7 +17,7 @@
         {% for event in events %}
           <div class="swiper-slide events-gallery__slide" style="height: 400px; width: {{event.width}}px" data-slide-index="{{ loop.index - 1 }}">
             <div class="events-gallery__img">
-              {{ image(event.src) }}
+              {{ image(event.image, event.title) }}
             </div>
           </div>
         {% endfor %}

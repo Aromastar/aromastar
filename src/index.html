@@ -20,12 +20,19 @@
   { _id: 2, label: 'ул. Авиактонструкторов, 5/22, Санкт-Петербург, Россия', title: 'Адрес', href: 'https://www.google.com/maps/place/Prospekt+Aviakonstruktorov,+5,+Sankt-Peterburg,+197372/data=!4m2!3m1!1s0x4696343397b794c5:0x4c95a7d231a996f7?sa=X&ved=2ahUKEwjJyuuW8pD5AhUCiIsKHS8HAngQ8gF6BAgmEAE' }
 ] %}
 
+{% set services = [
+  { _id: 0, image: 'corp', title: 'Корпоративные праздники', text: 'Проведение корпоративов – это одна из основных сфер деятельности компании Aromastar', link: { label: 'Узнать больше', href: '#contacts' } },
+  { _id: 1, image: 'concert', title: 'Организация концертов', text: 'Мировые звезды шоу-бизнеса. Яркие шоу и концерты на самых крупных площадках России', link: { label: 'Узнать больше', href: '#contacts' } },
+  { _id: 2, image: 'travel', title: 'Экскурсионные туры', text: 'Организовываем красочные и интересные экскурсионные туры по всей России и СНГ', link: { label: 'Узнать больше', href: '#contacts' } },
+  { _id: 3, image: 'conference', title: 'Организация и проведение конференций', text: 'Услуги по организации конференций, форумов и других деловых мероприятий', link: { label: 'Узнать больше', href: '#contacts' } }
+] %}
+
 {% set events = [
-  { _id: 0, width: 400, src: '/assets/baikal.jpg', title: 'Завораживающий Байкал' },
-  { _id: 0, width: 500, src: '/assets/serebro.jpg', title: 'Концерт группы SEREBRO в Китае' },
-  { _id: 0, width: 300, src: '/assets/moscow.jpg', title: 'Новогодняя ярмарка в Москве' },
-  { _id: 0, width: 260, src: '/assets/georgia.jpg', title: 'Экскурсионный туры в Грузию' },
-  { _id: 0, width: 400, src: '/assets/birthday.jpg', title: 'День рождение Алисы' }
+  { _id: 0, width: 400, image: 'baikal', title: 'Завораживающий Байкал' },
+  { _id: 0, width: 500, image: 'serebro', title: 'Концерт группы SEREBRO в Китае' },
+  { _id: 0, width: 300, image: 'moscow', title: 'Новогодняя ярмарка в Москве' },
+  { _id: 0, width: 260, image: 'georgia', title: 'Экскурсионный туры в Грузию' },
+  { _id: 0, width: 400, image: 'birthday', title: 'День рождение Алисы' }
 ] %}
 
 {% from 'src/njk/components/Heading.njk' import heading as heading %}
