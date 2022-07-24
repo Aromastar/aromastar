@@ -12,6 +12,7 @@ const reloadOnChange = (ext: string): Plugin => {
 }
 
 export default {
+  root: 'src',
   build: {
     outDir: '../dist'
   },
