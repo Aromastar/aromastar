@@ -8,10 +8,10 @@
 {% endmacro %}
 
 
-{% macro event(title, text, label, href) %}
+{% macro event(title, text, label, href, img) %}
   <div class="event">
     <div class="event__thumb">
-      {{ image('/assets/placeholder.png', 'asd') }}
+      {{ image('/assets/' + img, 'asd') }}
     </div>
 
     <div class="event__info">

@@ -1,8 +1,8 @@
 {% set services = [
-  { _id: 0, title: 'Корпоративные праздники', text: 'Проведение корпоративов – это одна из основных сфер деятельности компании Aromastar', link: { label: 'Узнать больше', href: '#contacts' } },
-  { _id: 1, title: 'Организация концертов', text: 'Мировые звезды шоу-бизнеса. Яркие шоу и концерты на самых крупных площадках России', link: { label: 'Узнать больше', href: '#contacts' } },
-  { _id: 2, title: 'Экскурсионные туры', text: 'Организовываем красочные и интересные экскурсионные туры по всей России и СНГ', link: { label: 'Узнать больше', href: '#contacts' } },
-  { _id: 3, title: 'Организация и проведение конференций', text: 'Услуги по организации конференций, форумов и других деловых мероприятий', link: { label: 'Узнать больше', href: '#contacts' } }
+  { _id: 0, image: 'corp.jpg', title: 'Корпоративные праздники', text: 'Проведение корпоративов – это одна из основных сфер деятельности компании Aromastar', link: { label: 'Узнать больше', href: '#contacts' } },
+  { _id: 1, image: 'concert.jpg', title: 'Организация концертов', text: 'Мировые звезды шоу-бизнеса. Яркие шоу и концерты на самых крупных площадках России', link: { label: 'Узнать больше', href: '#contacts' } },
+  { _id: 2, image: 'travel.jpg', title: 'Экскурсионные туры', text: 'Организовываем красочные и интересные экскурсионные туры по всей России и СНГ', link: { label: 'Узнать больше', href: '#contacts' } },
+  { _id: 3, image: 'conference.jpg', title: 'Организация и проведение конференций', text: 'Услуги по организации конференций, форумов и других деловых мероприятий', link: { label: 'Узнать больше', href: '#contacts' } }
 ] %}
 
 <section class="section section--grey" id="services">
@@ -29,7 +29,7 @@
         <ul class="services__list">
           {% for service in services %}
             <li class="services__item">
-              {{ listItems.event(service.title, service.text, service.link.label, service.link.href) }}
+              {{ listItems.event(service.title, service.text, service.link.label, service.link.href, service.image) }}
             </li>
           {% endfor %}
         </ul>
