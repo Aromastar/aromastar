@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --config vite.config.ts src",
-    "build": "tsc && vite build --config vite.config.ts",
+    "build": "tsc && vite build --config vite.config.ts --emptyOutDir src",
     "preview": "vite preview"
   },
   "devDependencies": {
