@@ -6,10 +6,10 @@
     </div>
 
     <div class="header__nav">
-      <nav class="nav">
+      <nav class="nav" id="navbar">
         <ul class="nav__list">
           {% for link in navLinks %}
-            <li class="nav__item">
+            <li class="nav__item {{ 'section-' + link.href.substring(1) }}">
               <a href="{{ link.href }}">{{ link.label }}</a>
             </li>
           {% endfor %}
