@@ -2,12 +2,12 @@
   <div class="container">
     <div class="hero__inner">
       <div>
-        {{ heading(1, 'Event агентство ', 'мирового уровня', 'hero__heading') }}
+        {{ heading(1, sections.hero.title[0], sections.hero.title[1], 'hero__heading') }}
 
-        <p class="hero__text">Организовываем и проводим запоминающиеся мероприятия в Санкт-Петербурге более 4 лет</p>
+        <p class="hero__text">{{ sections.hero.msg }}</p>
 
         <a href="#contacts" class="round-btn">
-          <span class="round-btn__label">Оставить заявку</span>
+          <span class="round-btn__label">{{ sections.hero.btnLabel }}</span>
           <span class="round-btn__icon">
             <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L6 6L1 11" stroke-width="2"/>

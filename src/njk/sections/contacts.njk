@@ -3,8 +3,8 @@
   <div class="container contacts__container">
     <div class="content">
       <div class="content__inner">
-        {{ heading(2, 'Мы будем рады воплотить', 'самые сложные идеи.') }}
-        <p class="p">Наше агентство превращает любые идеи в реальность, уделяя внимание каждой детали. Будем рады ответить на все интересующие вас вопросы!</p>
+        {{ heading(2, sections.contacts.title[0], sections.contacts.title[1]) }}
+        <p class="p">{{ sections.contacts.txt }}</p>
       </div>
         <ul class="contacts__list">
           {% for contact in contacts %}

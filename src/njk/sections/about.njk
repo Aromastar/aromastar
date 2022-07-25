@@ -3,19 +3,12 @@
   <div class="container">
     <div class="content">
       <div class="content__inner">
-        {{ heading(2, 'Создаем моменты,', 'которые запоминаются.') }}
-        <p class="p">Организация праздников и мероприятий – это напряженный и увлекательный
-          процесс, требующий абсолютно индивидуального подхода к каждому клиенту.
-          Именно поэтому мы всегда учитываем все пожелания и требования заказчика,
-          добавив к этому свой большой опыт подготовки и проведения частных и
-          корпоративных праздников.</p>
+        {{ heading(2, sections.about.title[0], sections.about.title[1]) }}
+        <p class="p">{{ sections.about.txt[0] }}</p>
         <div class="about__img">
-          {{ image('about', 'Аромастар')}}
+          {{ image('about', 'Aromastar')}}
         </div>
-        <p class="p">Наши проекты – это уникальные события, которые разрабатываются под
-          конкретные задачи каждого Заказчика. Команда Aromastar предлагает многообразие
-          форматов, оригинальные сценарии и режиссерские находки, эксклюзивные площадки,
-          декор и техническое сопровождение.</p>
+        <p class="p">{{ sections.about.txt[1] }}</p>
 
         <ul class="about__benefits">
           {% for item in benefits %}
@@ -25,7 +18,7 @@
           {% endfor %}
         </ul>
 
-        {{ button.link('Узнать больше об Aromastar', '#contacts') }}
+        {{ button.link(sections.about.btnLabel, '#contacts') }}
       </div>
     </div>
   </div>

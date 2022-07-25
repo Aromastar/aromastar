@@ -4,9 +4,9 @@
   <div class="container">
       <div class="content">
         <div class="content__inner">
-          {{ heading(2, 'Наш опыт будет', 'Вам полезен,') }}
-          <p class="p">если Вы планируете корпоративное мероприятие для сотрудников вашей компании, мероприятие для партнеров, клиентов и СМИ, мероприятие для продвижения вашего бренда, деловое или выездное мероприятие.</p>
-          <p class="p">Менеджмент любого события – это длительный и сложный процесс, связанный с планированием и координацией работы большого количества подрядчиков. Мы управляем этим процессом и несем ответственность за конечный результат.</p>
+          {{ heading(2, section.services.title[0], section.services.title[1]) }}
+          <p class="p">{{ section.services.txt[0] }}</p>
+          <p class="p">{{ section.services.txt[1] }}</p>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
           {% endfor %}
         </ul>
 
-        {{ button.link('Узнать больше об Aromastar', '#contacts') }}
+        {{ button.link(section.services.btnLabel, '#contacts') }}
       </div>
   </div>
 </section>
