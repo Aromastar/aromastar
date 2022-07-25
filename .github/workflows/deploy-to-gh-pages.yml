@@ -12,8 +12,10 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          yarn 
+          yarn
           yarn build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
