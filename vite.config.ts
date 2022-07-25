@@ -1,19 +1,25 @@
 import { resolve } from 'path'
-import { defineConfig, HmrContext, Plugin } from 'vite'
+import { defineConfig, HmrContext, Plugin, IndexHtmlTransformResult } from 'vite'
 import nunjucks from 'vite-plugin-nunjucks'
-
-/** Plugin to reload the page when changing files */
-const reloadOnChange = (ext: string): Plugin => {
-  return {
-    name: 'reload-on-change',
-    handleHotUpdate({ file, server }: HmrContext): void {
-      file.endsWith(ext) && server.ws.send({ type: 'full-reload' })
-    }
-  }
-}
+import { minify, Options as MinifierOptions } from 'html-minifier-terser'
 
 const root = resolve(__dirname, 'src')
 const outDir = resolve(__dirname, 'dist')
+
+/** Plugin to reload the page when changing files */
+const reloadOnFileChange = (ext: string): Plugin => ({
+  name: 'reload-on-file-change',
+  handleHotUpdate: ({ file, server }: HmrContext): void => {
+    file.endsWith(ext) && server.ws.send({ type: 'full-reload' })
+  }
+})
+
+/** Plugin for minimizing html files */
+const minifyHTML = (options: MinifierOptions = {}): Plugin => ({
+  name: 'minify-html',
+  transformIndexHtml: async (html: string): Promise<IndexHtmlTransformResult | void> =>
+    await minify(html, options)
+})
 
 export default defineConfig({
   root,
@@ -28,8 +34,11 @@ export default defineConfig({
     }
   },
   plugins: [
-    reloadOnChange('njk'),
+    reloadOnFileChange('njk'),
     // @ts-ignore: Unreachable code error
-    nunjucks()
+    nunjucks(),
+    minifyHTML({
+      collapseWhitespace: true
+    })
   ]
 })
