@@ -8,8 +8,8 @@
       {% endfor %}
     </ul>
 
-    <a href="#" class="mobile-menu__flag">
-      {{ flag('en') }}
+    <a {% if lang === 'ru' %} href="/en" {% elif lang === 'en' %} href="/" {% endif %} class="mobile-menu__flag">
+      {{ flag(countryFlag) }}
     </a>
   </div>
 </section>
