@@ -4,9 +4,9 @@
   <div class="container">
       <div class="content">
         <div class="content__inner">
-          {{ heading(2, section.services.title[0], section.services.title[1]) }}
-          <p class="p">{{ section.services.txt[0] }}</p>
-          <p class="p">{{ section.services.txt[1] }}</p>
+          {{ heading(2, sections.services.title[0], sections.services.title[1]) }}
+          <p class="p">{{ sections.services.txt[0] }}</p>
+          <p class="p">{{ sections.services.txt[1] }}</p>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
           {% endfor %}
         </ul>
 
-        {{ button.link(section.services.btnLabel, '#contacts') }}
+        {{ button.link(sections.services.btnLabel, '#contacts') }}
       </div>
   </div>
 </section>

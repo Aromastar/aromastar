@@ -16,7 +16,7 @@
         </ul>
       </nav>
 
-      <a href="#" class="header__flag">
+      <a {% if lang === 'ru' %} href="/en.html" {% elif lang === 'en' %} href="/" {% endif %} class="header__flag">
         {{ flag(countryFlag) }}
       </a>
     </div>
