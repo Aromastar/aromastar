@@ -174,6 +174,7 @@ body
       bottom: 0
       left: 0
       background-color: rgba($black, .7)
+      // background-image: url('/assets/dot.png')
       background-image: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='17' cy='17' r='1' fill='white' fill-opacity='0.2'/%3E%3C/svg%3E%0A")
 
   &__scroller
@@ -657,3 +658,32 @@ video
 //   100%
 //     transform-origin: 0% 100%
 //     transform: scale(1, 0)
+
+
+
+
+.companies
+  overflow: hidden
+  border-bottom: 1px solid $grey-200
+
+  &__inner
+    display: flex
+    flex-wrap: nowrap
+    width: 100%
+    padding: 30px 0
+
+  &__list
+    display: flex
+    align-items: center
+    animation: scroll-companies 40s infinite linear
+
+  &__item
+    margin-right: 150px
+    opacity: .5
+    @include max-width(700)
+      margin-right: 75px
+
+
+@keyframes scroll-companies
+  to
+    transform: translate3d(-200%, 0, 0)
