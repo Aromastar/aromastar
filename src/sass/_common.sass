@@ -176,6 +176,15 @@ body
       background-color: rgba($black, .7)
       background-image: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='17' cy='17' r='1' fill='white' fill-opacity='0.2'/%3E%3C/svg%3E%0A")
 
+  &__scroller
+    position: absolute
+    bottom: 0
+    left: 50%
+    transform: translate(-50%, -100%)
+    @include max-width(720)
+      transform: translate(-50%, -200%)
+
+
 .round-btn
   display: inline-flex
   justify-content: center
@@ -574,3 +583,67 @@ video
   left: 0
   object-fit: cover
   object-position: center
+
+.mouse
+  position: relative
+  display: block
+  z-indez: 10
+  width: 26px
+  height: 40px
+  border: 1px solid rgba($white, .25)
+  border-radius: 20px
+
+  &::after
+    content: ''
+    position: absolute
+    top: 8px
+    left: 50%
+    width: 3px
+    height: 8px
+    margin-left: -1.5px
+    border-radius: 10px
+    background-color: $white
+    animation: scroll-down 2400ms infinite cubic-bezier(1, 0, 0, 1)
+
+@keyframes scroll-down
+  0%
+    transform: translate3d(0, 0, 0)
+  80%
+    transform: translate3d(0, 12px, 0)
+    opacity: 0
+  90%
+    transform: translate3d(0, 0, 0)
+    opacity: 0
+  100%
+    transform: translate3d(0, 0, 0)
+    opacity: 1
+
+// .mouse
+//   position: relative
+//   width: 2px
+//   height: 40px
+
+//   &::after
+//     content: ''
+//     position: absolute
+//     top: 0
+//     right: 0
+//     bottom: 0
+//     left: 0
+//     background-color: $white
+//     animation: scroll-mouse 2.4s cubic-bezier(1, 0, 0, 1) infinite
+
+
+// @keyframes scroll-mouse
+//   0%
+//     transform-origin: 0% 0%
+//     transform: scale(1, 0)
+//   50%
+//     transform-origin: 0% 0%
+//     transform: scale(1, 1)
+//   50.1%
+//     transform-origin: 0% 100%
+//     transform: scale(1, 1)
+//   100%
+//     transform-origin: 0% 100%
+//     transform: scale(1, 0)
