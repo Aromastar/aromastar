@@ -17,6 +17,7 @@ const reloadOnFileChange = (ext: string): Plugin => ({
 /** Plugin for minimizing html files */
 const minifyHTML = (options: MinifierOptions = {}): Plugin => ({
   name: 'minify-html',
+  apply: 'build',
   transformIndexHtml: async (html: string): Promise<IndexHtmlTransformResult | void> =>
     await minify(html, options)
 })
