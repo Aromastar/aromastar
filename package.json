@@ -13,6 +13,7 @@
     "autoprefixer": "^10.4.7",
     "fast-glob": "^3.2.11",
     "html-minifier-terser": "^7.0.0-beta.0",
+    "picocolors": "^1.0.0",
     "sass": "^1.54.0",
     "typescript": "^4.6.4",
     "vite-aromastar": "https://github.com/Aromastar/vite-aromastar.git",

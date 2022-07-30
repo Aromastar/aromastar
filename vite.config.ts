@@ -1,10 +1,9 @@
-import { defineConfig, HmrContext, Plugin, IndexHtmlTransformResult, UserConfig } from 'vite'
+import { access, constants, promises } from 'node:fs'
+import { basename, resolve } from 'node:path'
+import { defineConfig, HmrContext, IndexHtmlTransformResult, LogType, Plugin, ResolvedConfig } from 'vite'
 import { minify, Options as MinifierOptions } from 'html-minifier-terser'
-import { resolve } from 'path'
 import fg from 'fast-glob'
-import fs from 'fs'
 import nunjucks from 'vite-plugin-nunjucks'
-import path from 'path'
 import enData from './src/data/en.json'
 import ruData from './src/data/ru.json'
 
@@ -35,38 +34,60 @@ interface IFileToCopy {
   to: string
 }
 
+// interface ICopyFileLog {
+//   type: LogType
+//   path: string
+//   message: string
+// }
+
 /** Plugin for copy static files */
 const copyFiles = (filesToCopy: IFileToCopy[] = []): Plugin => {
-  let config: Omit<UserConfig, "plugins" | "assetsInclude" | "optimizeDeps" | "worker">
+  let config: ResolvedConfig
+  // const logs: ICopyFileLog[] = []
+
+  const pathExists: (pathToCheck: string) => Promise<boolean> = (pathToCheck: string) => new Promise((resolve) =>
+    access(pathToCheck, constants.F_OK, error => error ? resolve(false) : resolve(true)))
+
+  const copyFile: (from: string, to: string) => Promise<void> = /** ToDo: fix async callback  */ async (from, to) => {
+    if (await pathExists(to)) {
+      // logs.push({ path: from, message: `File '${ basename(from) }' already exists`, type: 'warn' })
+      return
+    }
+
+    return await promises.copyFile(from, to)
+  }
 
   return {
     name: 'copy-files',
     apply: 'build',
-    configResolved: (resolvedConfig: Readonly<Omit<UserConfig, "plugins" | "assetsInclude" | "optimizeDeps" | "worker">>): void => {
+    configResolved: resolvedConfig => {
       config = resolvedConfig
     },
-    closeBundle: () => { },
+    closeBundle: () => { /** ToDo: output logs */ },
     writeBundle: async () => {
       for (const { from, to } of filesToCopy) {
         // Copy file by filename
-        if (typeof from === 'string' && fs.existsSync(resolve(config.root, from))) {
-          await fs.promises.copyFile(resolve(config.root, from), resolve(config.build.outDir, to))
+        if (typeof from === 'string' && await pathExists(resolve(config.root, from))) {
+          await copyFile(resolve(config.root, from), resolve(config.build.outDir, to))
           continue
         }
 
         // Copy files by pattern
         const pathNames: string[] = await fg(typeof from === 'string' ? resolve(config.root, from) : from.map(f => resolve(config.root, f)))
-        await fs.promises.mkdir(resolve(config.build.outDir, to))
+
+        if (!await pathExists(resolve(config.build.outDir, to))) {
+          await promises.mkdir(resolve(config.build.outDir, to))
+        }
+
         for (const pathName of pathNames) {
-          console.log(pathName)
-          await fs.promises.copyFile(resolve(config.root, pathName), resolve(config.build.outDir, to, path.basename(pathName)))
+          await copyFile(resolve(config.root, pathName), resolve(config.build.outDir, to, basename(pathName)))
         }
       }
     }
   }
 }
 
-export default defineConfig(({ command, mode, ssrBuild }) => {
+export default defineConfig(({ mode }) => {
   const isDev: boolean = mode === 'development'
 
   return {
