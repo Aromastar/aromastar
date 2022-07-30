@@ -1,16 +1,9 @@
 {% macro image(img, alt) %}
-  {# <div class="lazy-load-img"> #}
-    {# <picture>
-      <img class="image image--blurred" src="/assets/{{ img }}-blurred.png" alt="Blurred placeholder">
-    </picture> #}
-    {# <picture>
-      <img class="image image--original is-loading"
-          src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-          data-src="/assets/{{ img }}.jpg"
-          alt="{{ alt }}">
-    </picture> #}
-  {# </div> #}
-    <picture>
-      <img class="image" src="/assets/{{ img }}.jpg" alt="{{ alt }}">
-    </picture>
+  <picture>
+    <img class="image lazy-load-image"
+        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+        data-lazy-src="/assets/{{ img }}.jpg"
+        alt="{{ alt }}">
+    <img class="image" src="/assets/{{ img }}-blurred.png" alt="Blurred placeholder">
+  </picture>
 {% endmacro %}
