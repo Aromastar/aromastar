@@ -1,10 +1,10 @@
-import fs from 'fs'
-import fg from 'fast-glob'
-import path from 'path'
-import { resolve } from 'path'
 import { defineConfig, HmrContext, Plugin, IndexHtmlTransformResult, UserConfig } from 'vite'
-import nunjucks from 'vite-plugin-nunjucks'
 import { minify, Options as MinifierOptions } from 'html-minifier-terser'
+import { resolve } from 'path'
+import fg from 'fast-glob'
+import fs from 'fs'
+import nunjucks from 'vite-plugin-nunjucks'
+import path from 'path'
 
 const SRC_DIR = 'src'
 const OUT_DIR = 'dist'
@@ -36,18 +36,18 @@ interface IFileToCopy {
 /** Plugin for copy static files */
 const copyFiles = (filesToCopy: IFileToCopy[] = []): Plugin => {
   let config: Omit<UserConfig, "plugins" | "assetsInclude" | "optimizeDeps" | "worker">
-  // const isFileExists =
+
   return {
     name: 'copy-files',
     apply: 'build',
     configResolved: (resolvedConfig: Readonly<Omit<UserConfig, "plugins" | "assetsInclude" | "optimizeDeps" | "worker">>): void => {
       config = resolvedConfig
     },
-    closeBundle: () => {},
+    closeBundle: () => { },
     writeBundle: async () => {
       for (const { from, to } of filesToCopy) {
         // Copy file by filename
-        if (typeof from === 'string' && fs.existsSync(resolve(config.root, from))){
+        if (typeof from === 'string' && fs.existsSync(resolve(config.root, from))) {
           await fs.promises.copyFile(resolve(config.root, from), resolve(config.build.outDir, to))
           continue
         }
@@ -64,24 +64,37 @@ const copyFiles = (filesToCopy: IFileToCopy[] = []): Plugin => {
   }
 }
 
-export default defineConfig({
-  root,
-  build: {
-    outDir,
-    emptyOutDir: true,
-    rollupOptions: {
-      input: {
-        ru: resolve(root, 'index.html'),
-        en: resolve(root, 'en.html')
+export default defineConfig(({ command, mode, ssrBuild }) => {
+  const isDev: boolean = mode === 'development'
+
+  return {
+    root,
+    build: {
+      outDir,
+      emptyOutDir: true,
+      rollupOptions: {
+        input: {
+          ru: resolve(root, 'index.html'),
+          en: resolve(root, 'en.html')
+        }
       }
-    }
-  },
-  plugins: [
-    reloadOnFileChange('njk'),
-    // @ts-ignore: Unreachable code error
-    nunjucks(),
-    minifyHTML({
-      collapseWhitespace: true
-    })
-  ]
+    },
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: `$isDev: ${isDev}`
+        }
+      }
+    },
+    plugins: [
+      reloadOnFileChange('njk'),
+      // @ts-ignore: Unreachable code error
+      nunjucks({
+        variables: { '*': { isDev } }
+      }) as Plugin,
+      minifyHTML({
+        collapseWhitespace: true
+      })
+    ]
+  }
 })
