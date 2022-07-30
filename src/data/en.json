@@ -1,0 +1,199 @@
+{
+  "lang": "en",
+  "countryFlag": "ru",
+  "navLinks": [
+    {
+      "_id": 1,
+      "label": "Agency",
+      "href": "#about"
+    },
+    {
+      "_id": 2,
+      "label": "Services",
+      "href": "#services"
+    },
+    {
+      "_id": 3,
+      "label": "Events",
+      "href": "#events"
+    },
+    {
+      "_id": 4,
+      "label": "Contacts",
+      "href": "#contacts"
+    }
+  ],
+  "sections": {
+    "hero": {
+      "title": [
+        "World class",
+        "event agency",
+        "hero__heading"
+      ],
+      "msg": "We have been organizing and holding memorable events all over the world for more then 5 years",
+      "btnLabel": "Contact us now"
+    },
+    "about": {
+      "title": [
+        "We create moments",
+        "you'll remember for life."
+      ],
+      "txt": [
+        "Organization of holidays and events is a tense and exciting process that requires an absolutely individual approach to each client. That is why we always take into account all the wishes and requirements of the customer, adding to this our extensive experience in preparing and holding private and corporate holidays.",
+        "Our projects are unique events that are developed for the specific tasks of each Customer. The Aromastar team offers a variety of formats, original scripts and directorial finds, exclusive venues, decor and technical support."
+      ],
+      "btnLabel": "Learn more about Aromastar"
+    },
+    "services": {
+      "title": [
+        "Our experience will",
+        "be useful to you"
+      ],
+      "txt": [
+        "if you are planning a corporate event for your companys employees, an event for partners, clients and the media, an event to promote your brand, a business or outdoor event.",
+        "The management of any event is a long and complex process associated with planning and coordinating the work of a large number of contractors. We manage this process and are responsible for the final result."
+      ],
+      "btnLabel": "Learn about all agency services"
+    },
+    "events": {
+      "title": [
+        "Unforgettable experience",
+        "from our event agency."
+      ],
+      "txt": "Aromastar has been pleasing our customers for more than five years. During this time, our company has implemented a large number of event projects of various sizes and directions:"
+    },
+    "contacts": {
+      "title": [
+        "We will be happy to implement",
+        "the most difficult ideas."
+      ],
+      "txt": "Our agency turns any ideas into reality, paying attention to every detail. We will be glad to answer all your questions!"
+    }
+  },
+  "benefits": [
+    {
+      "_id": 0,
+      "title": "Great experience",
+      "text": "Aromastar agency has been pleasing our clients for more than five years. During this time, our company has implemented a large number of event projects of various sizes and directions."
+    },
+    {
+      "_id": 1,
+      "title": "High quality of services",
+      "text": "Our team consists of professional screenwriters, artists, presenters, animators, directors, photo and video operators who aim for the best result!"
+    },
+    {
+      "_id": 2,
+      "title": "Originality",
+      "text": "Our agency finds its own approach to each customer. Event-managers will reveal all your preferences, screenwriters will write an individual program. Your event will turn out to be truly bright and special!"
+    },
+    {
+      "_id": 3,
+      "title": "Implementation of client tasks",
+      "text": "The specialists of our event agency will determine what you really need and, based on your wishes and interests, will offer the most suitable option for the event."
+    }
+  ],
+  "contacts": [
+    {
+      "_id": 0,
+      "label": "+7 (911) 998-85-70",
+      "title": "Phone",
+      "href": "tel:+79119988570"
+    },
+    {
+      "_id": 1,
+      "label": "aromastar.spb@gmail.com",
+      "title": "Email",
+      "href": "mailto:aromastar.spb@mail.com?subject=Aromastar%20events"
+    },
+    {
+      "_id": 2,
+      "label": "st. Aviakonstruktorov, 5/22, St. Petersburg, Russian",
+      "title": "Address",
+      "href": "https://www.google.com/maps/place/Prospekt+Aviakonstruktorov,+5,+Sankt-Peterburg,+197372/data=!4m2!3m1!1s0x4696343397b794c5:0x4c95a7d231a996f7?sa=X&ved=2ahUKEwjJyuuW8pD5AhUCiIsKHS8HAngQ8gF6BAgmEAE"
+    }
+  ],
+  "services": [
+    {
+      "_id": 4,
+      "image": "tiktok",
+      "title": "Promotion and creation of media content",
+      "text": "We partner with popular tiktokers, bloggers and streamers to create media content that will help develop your ideas and goals.",
+      "link": {
+        "label": "Learn more",
+        "href": "#contacts"
+      }
+    },
+    {
+      "_id": 0,
+      "image": "corp",
+      "title": "Corporate events",
+      "text": "Aromastar Agency organizes and conducts business events aimed at maintaining customer interest in your company, presenting a new line of products or services, and much more!",
+      "link": {
+        "label": "Learn more",
+        "href": "#contacts"
+      }
+    },
+    {
+      "_id": 1,
+      "image": "concert",
+      "title": "Concert organization",
+      "text": "Vivid emotions, grandiose shows and concerts, world show business stars and much more at the largest venues around the world!",
+      "link": {
+        "label": "Learn more",
+        "href": "#contacts"
+      }
+    },
+    {
+      "_id": 2,
+      "image": "travel",
+      "title": "Excursion tours",
+      "text": "We organize colorful and interesting sightseeing tours throughout Russia and the CIS",
+      "link": {
+        "label": "Learn more",
+        "href": "#contacts"
+      }
+    },
+    {
+      "_id": 3,
+      "image": "conference",
+      "title": "Organization and holding of conferences",
+      "text": "Aromastar Agency will help to carry out a high-quality organization of a conference, business meeting, meeting of any business sector.",
+      "link": {
+        "label": "Learn more",
+        "href": "#contacts"
+      }
+    }
+  ],
+  "events": [
+    {
+      "_id": 0,
+      "width": 400,
+      "image": "baikal",
+      "title": "Journey to the bewitching Baikal"
+    },
+    {
+      "_id": 0,
+      "width": 500,
+      "image": "serebro",
+      "title": "SEREBRO concert in China"
+    },
+    {
+      "_id": 0,
+      "width": 300,
+      "image": "moscow",
+      "title": "New Year's Fair in Moscow"
+    },
+    {
+      "_id": 0,
+      "width": 260,
+      "image": "georgia",
+      "title": "Excursion tour to Georgia"
+    },
+    {
+      "_id": 0,
+      "width": 400,
+      "image": "birthday",
+      "title": "Alice's birthday"
+    }
+  ]
+}

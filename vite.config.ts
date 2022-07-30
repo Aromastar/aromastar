@@ -5,6 +5,8 @@ import fg from 'fast-glob'
 import fs from 'fs'
 import nunjucks from 'vite-plugin-nunjucks'
 import path from 'path'
+import enData from './src/data/en.json'
+import ruData from './src/data/ru.json'
 
 const SRC_DIR = 'src'
 const OUT_DIR = 'dist'
@@ -90,7 +92,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       reloadOnFileChange('njk'),
       // @ts-ignore: Unreachable code error
       nunjucks({
-        variables: { '*': { isDev } }
+        variables: {
+          '*': { isDev },
+          'index.html': ruData,
+          'en.html': enData
+        }
       }) as Plugin,
       minifyHTML({
         collapseWhitespace: true
