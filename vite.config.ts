@@ -121,7 +121,13 @@ export default defineConfig(({ mode }) => {
       }) as Plugin,
       minifyHTML({
         collapseWhitespace: true
-      })
+      }),
+      copyFiles([
+        {
+          from: '../README.md',
+          to: './README.md'
+        }
+      ])
     ]
   }
 })
